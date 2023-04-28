@@ -19,7 +19,7 @@ def jugar_preguntas(n):
             if len(incorrectas_consecutivas) > 0:
                 incorrectas_consecutivas[-1] += 1
         print()
-    aciertos = sl / n
+    aciertos = sl / no
     return preguntas, respuestas, sl, no, incorrectas_consecutivas, aciertos
 
 def reportar_resultados(preguntas, respuestas, sl, no, incorrectas_consecutivas, aciertos):
