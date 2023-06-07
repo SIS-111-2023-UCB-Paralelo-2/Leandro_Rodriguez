@@ -3,7 +3,7 @@ Funcion factorial <- funcionFactorial( numeroFactorial )
 	Para i <- 1 Hasta numeroFactorial Hacer
 		factorial = factorial * i
 	FinPara
-Fin Funcion
+Fin Funcion 
 
 Algoritmo Factoriaal
 	Definir numeroFactorial Como Entero
