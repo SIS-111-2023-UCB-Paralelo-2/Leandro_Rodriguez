@@ -1,7 +1,7 @@
 def vender_cafe():
     stock_tazas = 300
-    capacidad_taza = 150 
-    precio_cafe = 5 
+    capacidad_taza = 150  
+    precio_cafe = 5  
     tazas_vendidas = 0
     litros_vendidos = 0
     monto_ganancia = 0
@@ -24,6 +24,7 @@ def vender_cafe():
             continue
         for _ in range(num_usuarios):
             monto = 0
+            monto_ingresado = 0
             while monto < precio_cafe:
                 moneda = int(input("Ingrese el valor de la moneda (1, 2 o 5 Bs): "))
                 if moneda == 1:
@@ -37,6 +38,30 @@ def vender_cafe():
                     monto += 5
                 else:
                     print("Valor de moneda inválido. Intente nuevamente.")
+            monto_ingresado += monto
+            if monto_ingresado > precio_cafe:
+                cambio = monto_ingresado - precio_cafe
+                print("Cambio:", cambio, "Bs")
+                monedas_devueltas = [0, 0, 0]
+                while cambio > 0:
+                    if cambio >= 5 and monedas[2] > 0:
+                        monedas_devueltas[2] += 1
+                        cambio -= 5
+                        monedas[2] -= 1
+                    elif cambio >= 2 and monedas[1] > 0:
+                        monedas_devueltas[1] += 1
+                        cambio -= 2
+                        monedas[1] -= 1
+                    elif cambio >= 1 and monedas[0] > 0:
+                        monedas_devueltas[0] += 1
+                        cambio -= 1
+                        monedas[0] -= 1
+                    else:
+                        break
+                print("Monedas devueltas:")
+                print("Monedas de 1 Bs:", monedas_devueltas[0])
+                print("Monedas de 2 Bs:", monedas_devueltas[1])
+                print("Monedas de 5 Bs:", monedas_devueltas[2])
             if stock_tazas > 0:
                 print("Procesando café...")
                 stock_tazas -= 1
